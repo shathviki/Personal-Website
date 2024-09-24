@@ -1,0 +1,408 @@
+/* Reset some default styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'EB Garamond', serif;
+    background: linear-gradient(135deg, #f8f8f8);
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 100px;
+}
+
+header {
+    background-color: #e7daca;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    align-items: flex-start; /* Align items to the left */
+    width: 100vw; /* Ensure header takes up full viewport width */
+    box-sizing: border-box;
+
+    position: fixed; /* Fix the header at the top of the viewport */
+    top: 0; /* Position the header at the top */
+    left: 0; /* Align the header to the left edge */
+    z-index: 1000; /* Ensure the header stays above other content */
+    /* Optional: Add a box-shadow to distinguish the header from the content */
+    box-shadow: 0 4px 6px white(0, 0, 0, 0.1);
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #2b5548;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+nav ul li a:hover {
+    color: #333;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.hero h1 {
+    font-size: 60px;
+    font-weight: 300;
+    color: #2b5548;
+    margin: 2px;
+}
+
+.hero h1 span {
+    font-weight: bold;
+}
+
+.hero p {
+    font-size: 20px;
+    color: #666;    
+    margin: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 10px;
+    background-color: #2b5548;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+    border-radius: 10px; /* Make the button round */}
+
+.btn:hover {
+    background-color: #1f3e34;
+}
+
+/* About Section */
+.about {
+    display: flex;
+    max-width: 1200px;
+    margin: 40px auto; /* Added margin-top for space above the section */
+    margin-bottom: 5px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.about .text {
+    flex: 1;
+}
+
+.about h2 {
+    font-size: 32px;
+    color: #2b5548;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+.about p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.about ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: #555;
+}
+
+.about li {
+    margin-bottom: 5px;
+}
+
+.about .photo {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-image: url('your-photo-url.jpg');
+    background-size: cover;
+    background-position: center;
+    margin-top: 100px;
+    margin-left: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .about {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about .text {
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .about .photo {
+        margin-top: 20px;
+        margin-left: 0;
+    }
+}
+
+/* Projects Section */
+.project {
+    width: 100%;
+    max-width: 500px;
+    text-align: left;
+    margin: 10px 20px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Creates two columns */
+    gap: 20px; /* Space between grid items */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0; /* Start as invisible for fade-in effect */
+    transform: translateY(20px); /* Start slightly below the final position */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Smooth transition */
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Creates two equal columns */
+    gap: 20px; /* Space between grid items */
+}
+
+.project-item {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.project-item:hover {
+    background-color: #f4f0ec;
+}
+
+/* Scroll Animation */
+.project.in-view {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Move to the final position */
+}
+
+/* Hover Effect */
+.project:hover {
+    transform: scale(1.05); /* Slightly enlarge the box */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow */
+}
+
+/* Heading and button styles */
+.projects h2 {
+    font-size: 32px;
+    color: #2b5548;
+    border-bottom: 2px solid #ccc;
+    margin-left: 25px;
+}
+
+.project-image {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.project-image img {
+    max-width: 100%; /* Adjusted to ensure image fits well */
+    height: auto;
+    border-radius: 8px;
+}
+
+.project-details {
+    flex: 2;
+}
+
+.project-details h3 {
+    font-size: 24px;
+    color: #2b5548;
+}
+
+.project-details h4 {
+    font-size: 18px;
+    color: #1f3e34;
+}
+
+.project-details p {
+    font-size: 16px;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.project-details .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #2b5548;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.project-details .btn:hover {
+    background-color: #1f3e34;
+}
+
+/* Experiences Section */
+.experiences {
+    padding: 40px 20px;
+}
+
+.experiences h2 {
+    font-size: 32px;
+    color: #2b5548;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+    margin-left: 25px;
+}
+
+.experience-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.experience-item {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 6px solid #2b5548;
+    position: relative;
+}
+
+.experience-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.experience-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    background-color: #f4f0ec;
+}
+
+.experience-item h3 {
+    font-size: 24px;
+    color:black;
+    margin-bottom: 5px;
+}
+
+.overview {
+    font-size: 18px;
+    color: #1f3e34;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.experience-details {
+    display: none;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+}
+
+.experience-details ul {
+    margin-top: 10px;
+    padding-left: 30px;
+    list-style-type: disc;
+    list-style-position: outside;
+}
+
+/* Ensure item width does not expand on click */
+.experience-item.open {
+    position: relative;
+}
+
+.experience-item.open .experience-details {
+    display: block;
+}
+
+.experience-item:after {
+    content: "👀";
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    color: #2b5548;
+    transition: transform 0.3s ease;
+}
+
+/*Contact Section*/
+.contact-section {
+    display: flex;
+    justify-content:left;
+    max-width: 1200px;
+    margin: 5px; /* Added margin-top for space above the section */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.contact-section h2 {
+    font-size: 32px;
+    color: #2b5548;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+.contact-section p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.contact-icons {
+    margin-left: -815px;    
+    margin-top: 150px;
+    gap: 200px;
+}
+
+.contact-icon {
+    font-size: 36px;
+    color: #333;
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.contact-icon:hover {
+    color: #2b5548;
+}
+
+footer {
+    height: 70px;
+    background-color: #f4f0ec;
+    margin-top: 0.33px;}
+
+.footer-content {
+    text-align: center;
+    color: black;
+    padding-top: 15px; 
+}
+
